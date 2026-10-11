@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply bg-ivory text-graphite font-sans; font-feature-settings: "ss01", "tnum" 0; }
+  ::selection { background: #C29B58; color: #102A2A; }
+  h1, h2, h3 { @apply font-display tracking-tight text-midnight; }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type="number"] { -moz-appearance: textfield; }
+  :focus-visible { outline: 2px solid #2D7771; outline-offset: 2px; }
+}
+
+@layer components {
+  .eyebrow { @apply font-sans text-[11px] font-semibold uppercase tracking-eyebrow text-brass-600; }
+  .num { font-variant-numeric: tabular-nums; @apply font-mono; }
+  .panel { @apply bg-ivory-50 border border-line rounded-[3px]; }
+  .rule { @apply border-t border-line; }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(245,242,234,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245,242,234,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .grid-lines-light {
+    background-image:
+      linear-gradient(to right, rgba(16,42,42,0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16,42,42,0.045) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .field-input {
+    @apply w-full bg-white/70 border border-line rounded-[3px] px-3 py-2.5 text-[15px] text-midnight placeholder:text-graphite-300
+      transition-colors focus:border-teal focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal/15;
+  }
+  .field-input[aria-invalid="true"] { @apply border-alert focus:border-alert focus:ring-alert/15; }
+  .table-clean th { @apply text-left text-[11px] font-semibold uppercase tracking-wider text-graphite-500 py-2.5 px-3 border-b border-line bg-ivory-200/50; }
+  .table-clean td { @apply py-2.5 px-3 border-b border-line/70 align-top text-[13.5px]; }
+  .table-clean tr:last-child td { @apply border-b-0; }
+}

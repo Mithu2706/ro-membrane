@@ -1,0 +1,21 @@
+# Never upload local secrets or local data
+backend/.env
+backend/data/
+backend/backups/
+*.db
+*.db-wal
+*.db-shm
+# Not needed in the deployment
+backend/tests/
+**/__pycache__/
+**/.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+docs/sample_report.pdf
+_Research_Task_Evidence-Based_Reverse_Osmosis_Me.pdf
+.claude/
+start.ps1
+deploy/
+.env.local
+.env*.local
+.vercel/

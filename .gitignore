@@ -1,0 +1,28 @@
+# Secrets and local configuration — never commit
+.env*
+!.env.example
+!backend/.env.example
+deploy/*.local.txt
+.vercel/
+
+# Local data
+backend/data/*.db*
+backend/backups/
+*.db
+*.db-wal
+*.db-shm
+
+# Source research report: licensed for personal, non-commercial use; redistribution requires the
+# copyright holder's consent, so it is not published with the code.
+_Research_Task_Evidence-Based_Reverse_Osmosis_Me.pdf
+
+# Build / tooling output
+__pycache__/
+.pytest_cache/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+.claude/
+
+# Outdated generated sample (old product name / engine version)
+docs/sample_report.pdf
