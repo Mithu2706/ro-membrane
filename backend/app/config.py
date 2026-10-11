@@ -76,3 +76,6 @@ if settings.hosted and not os.environ.get("RO_SECRET_KEY"):
     # Serverless instances each have their own memory: a per-process random key would invalidate admin sessions
     # whenever a request reaches a different instance.
     raise RuntimeError("RO_SECRET_KEY must be set for hosted deployments.")
+if settings.hosted and not settings.database_url:
+    # Hosted/serverless filesystems are read-only and ephemeral: a local SQLite file would fail or lose data.
+    raise RuntimeError("DATABASE_URL must be set for hosted deployments (connect a Postgres database, e.g. Neon).")
